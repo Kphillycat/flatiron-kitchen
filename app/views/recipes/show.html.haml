@@ -3,6 +3,12 @@
 %p
   %b Name:
   = @recipe.name
+  %br
+  %b Ingredients:
+  %ul
+  - @recipe.ingredients.each do |ingredient|
+    %li
+      = ingredient.name
 
 = link_to 'Edit', edit_recipe_path(@recipe)
 \|

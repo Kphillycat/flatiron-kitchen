@@ -39,6 +39,8 @@ group :test do
   gem 'capybara'
 end
 
+gem 'protected_attributes'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
