@@ -43,6 +43,12 @@ class RecipesController < ApplicationController
   # PATCH/PUT /recipes/1.json
   def update
     respond_to do |format|
+      @recipe.ingredients.destroy_all
+      params[:ingredients][:ingredient_ids].each do |id|
+        @recipe.ingredients << Ingredient.find(id) unless id == ""
+        @recipe.save
+        #come back to update later
+      end
       if @recipe.update(recipe_params)
         format.html { redirect_to @recipe, notice: 'Recipe was successfully updated.' }
         format.json { head :no_content }
